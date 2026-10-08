@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Leader OS · Recovery 64 Preview</title>
+<style>
+:root{--bg:#f6f7f6;--panel:#fff;--line:#e4e7e5;--ink:#17211c;--muted:#6a756e;--accent:#173f2c;--accent2:#eef7f1;--warn:#fff8e8;--danger:#fff1ef}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+button,input,textarea,select{font:inherit}.app{min-height:100vh;display:grid;grid-template-columns:240px 1fr}.side{border-right:1px solid var(--line);background:#f0f2f0;padding:18px 14px;position:sticky;top:0;height:100vh;overflow:auto}.brand{display:flex;align-items:center;gap:9px;font-weight:900;margin-bottom:18px}.brand-mark{width:28px;height:28px;border:1px solid #9ba89f;border-radius:8px;display:grid;place-items:center;background:#fff}.nav-group{margin:14px 0 6px;font-size:10px;font-weight:800;color:#879189;letter-spacing:.08em}.nav button{display:flex;width:100%;border:0;background:transparent;padding:9px 10px;border-radius:9px;text-align:left;color:#435047;margin:2px 0;cursor:pointer}.nav button.active,.nav button:hover{background:#fff;color:#17211c}.main{min-width:0}.top{height:64px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:sticky;top:0;z-index:20;backdrop-filter:blur(8px)}.top-left{font-weight:800}.actions{display:flex;gap:7px}.actions button,.btn{border:1px solid #d6ddd9;background:#fff;border-radius:9px;padding:8px 10px;font-size:12px;cursor:pointer}.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}.content{padding:22px;max-width:1280px;margin:0 auto}.page{display:none}.page.active{display:block}.kicker{font-size:10px;letter-spacing:.09em;font-weight:900;color:#4d6d5a}.page h1{font-size:26px;margin:4px 0}.sub{font-size:13px;color:var(--muted);margin:0 0 16px}.hero{border:1px solid #cbdcd2;background:linear-gradient(#f7fbf8,#fff);border-radius:18px;padding:17px;margin-bottom:14px;display:grid;grid-template-columns:1fr auto;gap:14px}.hero h2{font-size:19px;margin:3px 0 6px}.hero p{font-size:12px;line-height:1.55;color:var(--muted);margin:0}.pills{display:flex;gap:6px;flex-wrap:wrap;align-content:start}.pill{font-size:9px;font-weight:900;border:1px solid #ccd8d1;border-radius:999px;padding:6px 8px;background:#fff}.grid{display:grid;grid-template-columns:270px minmax(0,1fr);gap:14px}.card{border:1px solid var(--line);background:var(--panel);border-radius:16px}.roster{padding:12px;height:max-content}.roster-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}.person{width:100%;display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:8px;border:1px solid transparent;background:transparent;padding:9px;border-radius:11px;text-align:left;cursor:pointer}.person.active{background:#f1f9f4;border-color:#afd2bd}.avatar{width:32px;height:32px;border-radius:9px;background:#e8f1eb;display:grid;place-items:center;font-weight:900}.person b{display:block;font-size:11px}.person span{font-size:9px;color:var(--muted)}.detail{padding:16px;min-height:640px}.detail-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:12px}.detail-head h2{font-size:20px;margin:2px 0 3px}.meta{font-size:9px;color:var(--muted)}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}.tabs button{border:1px solid #d6ddd9;background:#fff;border-radius:8px;padding:7px 9px;font-size:10px;cursor:pointer}.tabs button.active{background:var(--accent);border-color:var(--accent);color:#fff}.panel{display:none}.panel.active{display:block}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:grid;gap:4px}.field.full{grid-column:1/-1}.field label{font-size:9px;font-weight:800;color:#536158}.field input,.field textarea,.field select{width:100%;border:1px solid #d5ddd8;border-radius:9px;padding:9px;background:#fff}.field textarea{min-height:82px;resize:vertical}.safe{margin-top:10px;background:#f6f8f7;border-radius:10px;padding:9px 10px;font-size:10px;line-height:1.5;color:#5e6962}.confirm{margin-top:10px;border:1px solid #d7e2dc;border-radius:11px;padding:10px;display:flex;justify-content:space-between;gap:10px;align-items:center;background:#f8faf9}.confirm b,.confirm span{display:block}.confirm b{font-size:10px}.confirm span{font-size:9px;color:var(--muted)}.member{margin-top:12px;border:1px solid #c9dbd0;border-radius:13px;padding:11px;background:#fbfdfb}.member h3{font-size:13px;margin:3px 0}.member p{font-size:10px;line-height:1.45;color:var(--muted)}.row{display:flex;gap:6px;flex-wrap:wrap}.list{display:grid;gap:8px}.item{border:1px solid var(--line);border-radius:11px;padding:10px}.item h4{font-size:11px;margin:0 0 4px}.badge{display:inline-block;font-size:8px;font-weight:900;border:1px solid #d0d5dd;border-radius:999px;padding:4px 6px;margin-bottom:6px}.badge.green{background:#ecfdf3;color:#027a48;border-color:#abefc6}.badge.yellow{background:#fffaeb;color:#b54708;border-color:#fedf89}.badge.red{background:#fff1f0;color:#b42318;border-color:#fecdca}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}.summary .item b{display:block;font-size:17px}.brief{border:1px solid #bfd5c7;border-radius:13px;padding:12px;background:#f5faf7;margin-top:10px}.brief-row{display:grid;grid-template-columns:110px 1fr;gap:8px;padding:7px 0;border-top:1px solid #dfe8e2;font-size:10px}.brief-row:first-of-type{border-top:0}.placeholder{padding:28px;border:1px dashed #cfd6d2;border-radius:14px;background:#fff;color:var(--muted);line-height:1.6}.toast{position:fixed;right:18px;bottom:18px;background:#1c2f24;color:#fff;padding:10px 12px;border-radius:10px;font-size:11px;opacity:0;transform:translateY(10px);transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:none}
+@media(max-width:900px){.app{grid-template-columns:1fr}.side{height:auto;position:static;border-right:0;border-bottom:1px solid var(--line)}.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.grid{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.summary{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><span class="brand-mark">LO</span><span>Leader OS</span></div>
+    <div class="nav">
+      <div class="nav-group">FOCUS</div>
+      <button data-page="today">Today</button>
+      <button data-page="quest">30-Day Quest</button>
+      <button data-page="people" class="active">People</button>
+      <div class="nav-group">OPERATE</div>
+      <button data-page="one">1:1</button>
+      <button data-page="work">Work</button>
+      <button data-page="meetings">Meetings</button>
+      <button data-page="decisions">Decisions</button>
+      <div class="nav-group">REVIEW</div>
+      <button data-page="review">Review</button>
+      <button data-page="reports">Reports</button>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="top">
+      <div class="top-left">Leader OS · Recovery 64 Preview</div>
+      <div class="actions"><button>로그인 / Workspace</button><button>SHOWCASE DEMO</button><button>전체 검색</button></div>
+    </header>
+    <div class="content">
+      <section class="page" id="today"><h1>Today</h1><p class="sub">오늘의 Leadership Mission과 Next Best Action.</p><div class="placeholder">Today는 현재 Mission, Top 3, Context Nudge를 한 화면에서 보여주는 영역입니다.</div></section>
+      <section class="page" id="quest"><h1>30-Day Quest</h1><p class="sub">30일 동안 실제 행동을 수행하며 팀을 이해하고 운영 시스템을 만듭니다.</p><div class="placeholder">UNDERSTAND → ALIGN → EMPOWER → COACH · 30 Days × 5 checks = 150 required actions</div></section>
+      <section class="page active" id="people">
+        <h1>People</h1><p class="sub">사람을 평가하지 않고, 함께 일하는 방법을 Evidence로 이해합니다.</p>
+        <div class="hero"><div><div class="kicker">COLLABORATION MEMORY · WORKING PERSONA</div><h2>이 사람과 어떻게 일해야 가장 잘 움직이는가?</h2><p>본인이 확인한 업무 선호와 실제 협업 Evidence를 기반으로 지시·위임·피드백·보고 Workflow를 최적화합니다.</p></div><div class="pills"><span class="pill">NO PERSON SCORE</span><span class="pill">PRIVATE BY DEFAULT</span><span class="pill">EVIDENCE FIRST</span></div></div>
+        <div class="grid">
+          <aside class="card roster"><div class="roster-head"><div><div class="kicker">PEOPLE</div><b>함께 일하는 사람</b></div><button class="btn" id="addPerson">+ 사람 추가</button></div><div id="roster"></div></aside>
+          <section class="card detail">
+            <div class="detail-head"><div><div class="kicker">WORKING PERSONA · PRIVATE</div><h2 id="personName">김민지</h2><div class="meta" id="personMeta">Designer · 2 confirmed patterns · 3 sources</div></div><div class="row"><button class="btn">1:1 준비</button><button class="btn">Leader Coach</button><button class="btn primary" id="openBrief">업무지시 만들기</button></div></div>
+            <div class="tabs" id="tabs"><button class="active" data-tab="profile">Working Persona</button><button data-tab="memory">Collaboration Memory</button><button data-tab="patterns">Observed Patterns</button><button data-tab="review">Review Queue (2)</button><button data-tab="brief">Instruction Workflow</button></div>
+            <div class="panel active" id="profile">
+              <div class="form-grid">
+                <div class="field"><label>이름</label><input id="nameInput" value="김민지"></div>
+                <div class="field"><label>역할</label><input id="roleInput" value="Designer"></div>
+                <div class="field full"><label>업무 지시 선호 · Self-reported</label><textarea id="instructionPref">Goal → Reference → Done Criteria 순서가 가장 이해하기 편함</textarea></div>
+                <div class="field"><label>자율 수준 선호</label><select id="autonomy"><option>SUPPORT · 판단은 맡고 필요할 때 지원</option><option>COACH · 질문하며 함께 설계</option><option>DELEGATE · 결과 기준 중심</option></select></div>
+                <div class="field"><label>Checkpoint 선호</label><input id="checkpoint" value="30% 시점 Direction Check"></div>
+                <div class="field"><label>Feedback 선호</label><input value="1:1에서 구체적인 수정 포인트"></div>
+                <div class="field"><label>Reporting 선호</label><input value="문서/이미지로 결과 중심 보고"></div>
+                <div class="field"><label>Communication 선호</label><input value="Slack 요약 + 문서 링크"></div>
+                <div class="field"><label>집중 / 작업 리듬</label><input value="오전 집중 업무, 오후 리뷰"></div>
+                <div class="field full"><label>업무상 연락 선호</label><input value="18시 이후 비동기 메시지 선호"></div>
+              </div>
+              <div class="safe"><b>자동 최적화에서 제외</b> · 나이, 가족관계, 집안사정, 건강, 종교, 정치성향 등 사적·민감 정보는 업무지시·평가·배분의 근거로 사용하지 않습니다.</div>
+              <div class="confirm"><div><b>Self-reported preference 확인</b><span>확인됨 · 2026-10-08</span></div><div class="row"><button class="btn">직접 확인용 문구 복사</button><button class="btn">직접 대화로 확인 완료</button></div></div>
+              <div class="member"><div class="kicker">TEAM MEMBER CONFIRMATION</div><h3>본인이 업무 선호를 확인·수정할 수 있게 합니다.</h3><p>공개 링크에는 업무 선호 항목만 보이며 PRIVATE 메모·1:1·Audio/Transcript·Pattern reasoning은 전달되지 않습니다.</p><div class="row"><button class="btn">상태 새로고침</button><button class="btn primary" id="fakeLink">7일 확인 링크 만들기</button></div></div>
+              <div class="row" style="margin-top:10px"><button class="btn primary" id="savePersona">Working Persona 저장</button></div>
+            </div>
+            <div class="panel" id="memory"><div class="list"><div class="item"><span class="badge green">PRIVATE</span><h4>ONE_ON_ONE · 2026-10-02</h4><div class="meta">초기 30% 단계에서 방향을 확인하면 이후 자율적으로 진행하기 편하다고 확인.</div></div><div class="item"><span class="badge green">WORK RESULT</span><h4>캠페인 KV 작업</h4><div class="meta">Visual Reference + Done Criteria 제공 후 수정 1회로 완료.</div></div><div class="item"><span class="badge green">FEEDBACK</span><h4>Feedback Practice</h4><div class="meta">사람들 앞보다 1:1에서 구체적인 수정 포인트를 전달했을 때 다음 결과가 명확했음.</div></div></div></div>
+            <div class="panel" id="patterns"><div class="list"><div class="item"><span class="badge green">CONFIRMED</span><h4>BRIEF</h4><div class="meta">Visual Reference와 Done Criteria를 함께 줄 때 재작업이 적었음 · Last review 2026-10-08</div></div><div class="item"><span class="badge green">CONFIRMED</span><h4>CHECKPOINT</h4><div class="meta">30% 시점 Direction Check가 효과적 · Last review 2026-10-08</div></div><div class="item"><span class="badge yellow">CANDIDATE</span><h4>REPORTING</h4><div class="meta">결과 화면 캡처 + 짧은 문서 요약이 효율적일 가능성 · Human Confirm 필요</div></div></div></div>
+            <div class="panel" id="review"><div class="summary"><div class="item"><b>1</b><span class="meta">Candidate</span></div><div class="item"><b>0</b><span class="meta">Revalidate</span></div><div class="item"><b>0</b><span class="meta">Possible conflict</span></div><div class="item"><b>1</b><span class="meta">Response / Transcript</span></div></div><div class="list"><div class="item"><span class="badge yellow">CANDIDATE</span><h4>REPORTING · 결과 화면 + 요약 보고 선호</h4><div class="meta">Source를 검토한 뒤 Human Confirm하세요.</div><button class="btn" style="margin-top:8px">Human Confirm</button></div><div class="item"><span class="badge green">TEAM MEMBER</span><h4>Working Preference 수정안 제출</h4><div class="meta">현재 값과 제출 값을 비교한 뒤 Apply / Reject 하도록 설계됩니다.</div></div></div></div>
+            <div class="panel" id="brief">
+              <div class="form-grid"><div class="field"><label>업무</label><input id="task" value="신규 캠페인 SNS KV 초안"></div><div class="field"><label>Goal</label><input id="goal" value="신규 고객에게 캠페인 첫 인상을 전달"></div><div class="field full"><label>Context</label><textarea id="context">메인 메시지와 20대 신규 고객 타깃을 기준으로 시각적 방향을 제안.</textarea></div><div class="field"><label>Output</label><textarea id="output">1080×1350 콘셉트 3안</textarea></div><div class="field"><label>Done Criteria</label><textarea id="done">브랜드 컬러, 카피 가독성, 모바일 첫 화면 기준, 각 안 의도 1문장</textarea></div></div>
+              <button class="btn primary" id="generate" style="margin-top:10px">Working Persona로 업무지시 만들기</button>
+              <div class="brief" id="briefOut"><div class="kicker">PEOPLE-AWARE INSTRUCTION</div><h3>김민지에게 전달할 업무지시 Draft</h3><div class="brief-row"><b>TASK</b><span>신규 캠페인 SNS KV 초안</span></div><div class="brief-row"><b>AUTHORITY</b><span>L4 · Decide + Check</span></div><div class="brief-row"><b>CHECKPOINT</b><span>30% 시점 Direction Check</span></div><div class="brief-row"><b>REPORTING</b><span>문서/이미지로 결과 중심 보고</span></div><div class="brief-row"><b>RATIONALE</b><span>SELF_REPORTED_CONFIRMED · CHECKPOINT / CONFIRMED_PATTERN_CURRENT · BRIEF</span></div></div>
+            </div>
+          </section>
+        </div>
+      </section>
+      <section class="page" id="one"><h1>1:1</h1><p class="sub">People Context를 질문으로 가져와 확인하는 공간.</p><div class="placeholder">Working Persona는 결론이 아니라 1:1 질문을 만드는 Context로 사용됩니다.</div></section>
+      <section class="page" id="work"><h1>Work</h1><p class="sub">People-aware Instruction을 Delegation Artifact로 연결합니다.</p><div class="placeholder">Goal → Context → Output → Done Criteria → Authority → Guardrail → Checkpoint → Reporting → Feedback</div></section>
+      <section class="page" id="meetings"><h1>Meetings</h1><div class="placeholder">회의 목적, 결정, Action, Commitment를 관리합니다.</div></section>
+      <section class="page" id="decisions"><h1>Decisions</h1><div class="placeholder">Decision Rights와 Decision Brief를 관리합니다.</div></section>
+      <section class="page" id="review"><h1>Review</h1><div class="placeholder">Self Verification과 운영 Artifact를 검증합니다.</div></section>
+      <section class="page" id="reports"><h1>Reports</h1><div class="placeholder">리더가 Human Confirm한 업무 보고만 공식 Report로 전환합니다.</div></section>
+    </div>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const people=[{id:'p1',name:'김민지',role:'Designer',meta:'2 patterns · 3 sources'},{id:'p2',name:'이준호',role:'PM',meta:'1 pattern · 2 sources'},{id:'p3',name:'박서연',role:'Copywriter',meta:'3 patterns · 4 sources'}];
+let active='p1';
+const toast=(t)=>{const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1600)};
+function renderRoster(){document.getElementById('roster').innerHTML=people.map(p=>`<button class="person ${p.id===active?'active':''}" data-person="${p.id}"><span class="avatar">${p.name[0]}</span><span><b>${p.name}</b><span>${p.role} · ${p.meta}</span></span><span>→</span></button>`).join('');document.querySelectorAll('[data-person]').forEach(b=>b.onclick=()=>{active=b.dataset.person;const p=people.find(x=>x.id===active);document.getElementById('personName').textContent=p.name;document.getElementById('nameInput').value=p.name;document.getElementById('roleInput').value=p.role;document.getElementById('personMeta').textContent=p.role+' · '+p.meta;renderRoster()})}
+renderRoster();
+document.querySelectorAll('.nav button[data-page]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(b.dataset.page).classList.add('active')});
+document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));document.getElementById(b.dataset.tab).classList.add('active')});
+document.getElementById('openBrief').onclick=()=>document.querySelector('[data-tab="brief"]').click();
+document.getElementById('addPerson').onclick=()=>toast('Preview에서는 사람 추가 UI만 확인합니다.');
+document.getElementById('fakeLink').onclick=()=>toast('실제 확인 링크 생성은 로그인된 Runtime에서 동작합니다.');
+document.getElementById('savePersona').onclick=()=>toast('Working Persona Preview 저장 완료');
+document.getElementById('generate').onclick=()=>{const name=document.getElementById('nameInput').value||'팀원';const task=document.getElementById('task').value;const checkpoint=document.getElementById('checkpoint').value||'30% Direction Check';document.getElementById('briefOut').innerHTML=`<div class="kicker">PEOPLE-AWARE INSTRUCTION</div><h3>${name}에게 전달할 업무지시 Draft</h3><div class="brief-row"><b>TASK</b><span>${task}</span></div><div class="brief-row"><b>GOAL</b><span>${document.getElementById('goal').value}</span></div><div class="brief-row"><b>CONTEXT</b><span>${document.getElementById('context').value}</span></div><div class="brief-row"><b>OUTPUT</b><span>${document.getElementById('output').value}</span></div><div class="brief-row"><b>DONE</b><span>${document.getElementById('done').value}</span></div><div class="brief-row"><b>CHECKPOINT</b><span>${checkpoint}</span></div><div class="brief-row"><b>RATIONALE</b><span>verified self-reported preference + current confirmed pattern</span></div>`;toast('업무지시 Draft를 생성했습니다.')};
+</script>
+</body></html>
