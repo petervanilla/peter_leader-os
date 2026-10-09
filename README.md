@@ -159,7 +159,7 @@ Expected canonical SHA-256:
 
 `8e16f50fdf1eebb31a35addd4b588a9421400d9d3712b83dfcb32bdeed690b9c`
 
-The root `index.html` is a lightweight browser preview and is not the canonical runtime.
+The root `index.html` is a lightweight browser preview. The deployable canonical runtime is built from the extracted modules with `npm run build` into `dist/`.
 
 ## Current Release Gate
 

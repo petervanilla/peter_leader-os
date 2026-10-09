@@ -67,13 +67,56 @@ Expected canonical SHA-256:
 
 `scripts/assemble-r64.mjs` verifies both byte length and SHA-256 before writing the assembled file to `dist/`.
 
+
+### 6. Embedded modular source extracted
+
+The canonical Recovery 64 HTML already carried its original module source map in `const MODULES`. Recovery 65 now extracts that source map into `src/canonical-r64/` without rewriting it.
+
+- extracted modules: **36 / 36**
+- extraction source: canonical Recovery 64 byte-verified artifact
+- module manifest: `src/canonical-r64/module-manifest.json`
+- parity command: `npm run verify:r64-modules`
+
+This changes the migration problem from “rewrite a 5 MB HTML file” to “activate and modernize the original modular source while preserving canonical behavior.”
+
+
+### 7. Modular production build path added
+
+The repository now has a production build path that does not execute the embedded `const MODULES` blob-loader.
+
+`npm run build`:
+1. reconstructs and SHA-verifies canonical Recovery 64,
+2. removes the inline module-map loader,
+3. points the canonical shell at `/src/canonical-r64/app.js`,
+4. validates every relative module import target,
+5. copies the exact 36 extracted modules into `dist/src/canonical-r64/`,
+6. writes the deployable canonical shell as `dist/index.html`.
+
+`vercel.json` now uses this build and serves `dist/`. The repository root `index.html` remains a lightweight preview only; production Preview should use the build output.
+
+
+## Recovery 65 modular-build validation
+
+The modular build path was reproduced against the original canonical artifact and passed:
+
+- canonical SHA-256: `8e16f50fdf1eebb31a35addd4b588a9421400d9d3712b83dfcb32bdeed690b9c`
+- extracted canonical modules: **36**
+- direct module entry: `/src/canonical-r64/app.js`
+- inline `const MODULES` loader removed from build output
+- relative import graph: PASS
+- `app.js` JavaScript syntax check: PASS
+- generated modular shell size: 4,674,598 bytes
+- generated module files: 36
+
+This validation did not require changing the production Supabase runtime.
+
 ## Still open after Recovery 65
 
 P0 release work remains:
 
 1. authenticated Login / Workspace E2E
 2. People confirmation full E2E
-3. deployment of the canonical app/runtime, not only the lightweight preview
+3. activate the extracted modular frontend as the deployable canonical app/runtime, not only the lightweight preview
 4. reload/persistence checks
 5. error/loading/empty-state QA
 

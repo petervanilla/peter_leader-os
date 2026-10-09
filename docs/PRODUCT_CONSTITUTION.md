@@ -1,11 +1,9 @@
 # Leader OS Product Constitution
 
-## Product purpose
+## North Star
+Leader OS는 새 팀장이 30일 안에 실제 미션을 수행하며 팀을 이해하고, 운영 시스템을 만들고, 코칭 리듬을 만드는 Leadership Onboarding OS다.
 
-Leader OS helps a newly appointed leader understand the team, align goals, build an operating system, and establish a repeatable coaching rhythm within 30 days.
-
-## Truth constitution
-
+## Truth Constitution
 ```text
 CONTEXT BEFORE RECOMMENDATION.
 AI RECOMMENDS. HUMAN DECIDES.
@@ -18,78 +16,70 @@ SOURCE
 → CONFIRMED DOMAIN CONTEXT
 ```
 
-## Non-negotiable rules
+## Non-negotiables
+- 사람을 점수화하거나 순위화하지 않는다.
+- PRIVATE 1:1, People profile, Self Verification, onboarding Context는 HR/Global Search로 누출하지 않는다.
+- Candidate는 자동으로 Confirmed가 되지 않는다.
+- Human Confirm된 Artifact는 곧바로 Domain Truth가 아니다.
+- Delegation level은 task-specific이며 person label이 아니다.
+- 민감/보호 특성은 업무 배분·평가·Brief 최적화에 사용하지 않는다.
+- MBTI/style label은 참고용이며 generator 입력에서 제외한다.
+- unverified self-reported preference는 자동 업무지시 최적화에 사용하지 않는다.
+- Review-Due / stale / conflicted Pattern은 자동 업무지시에 사용하지 않는다.
+- Add-on evidence는 Truth가 아니다.
+- optimistic expectedVersion을 유지한다.
 
-- AI may recommend; a human must decide.
-- PRIVATE and RESTRICTED context must never silently become shared context.
-- 1:1 notes are PRIVATE by default.
-- Self Verification is PRIVATE by default.
-- People Working Persona and Collaboration Sources are PRIVATE by default.
-- Add-on evidence is not confirmed Truth.
-- Human-confirmed Operating Artifact is an approved artifact, not an arbitrary confirmed domain fact.
-- Delegation levels describe a task relationship, never a permanent person label.
-- Candidate Patterns require Human Confirm before they may become Confirmed Patterns.
-- Review-Due or conflicted Patterns must not influence automatic instruction adaptation.
-- Unverified self-reported preferences must not influence automatic instruction adaptation.
-- Team-member preference submissions never overwrite the leader profile directly; the leader reviews and Applies or Rejects.
-- No hidden employee score, ranking, compensation inference, or cross-person performance leaderboard.
-- Sensitive/protected personal traits must not drive task assignment, evaluation, delegation, or brief generation.
-- MBTI/style labels are reference-only and excluded from automatic instruction generation.
-- Search must exclude PRIVATE records.
-- HR/Admin surfaces may show onboarding progress and organizational artifacts, but not private coaching, 1:1, self-reflection, or private People reasoning.
-- Optimistic `expectedVersion` checks remain required for mutable shared/runtime records.
-- Guest/local state must never silently upload into an authenticated workspace.
-
-## Canonical progress model
-
-Leader OS has two progress models, not three:
-
-1. 12 Setup — operational setup.
-2. 30-Day Mission / Quest — real leadership practice and execution.
-
-The Mission Checklist is the execution body of the Quest.
-
-Mission completion requires:
-
+## Canonical Product Loop
 ```text
-all five required checks
-AND Evidence exists
-AND Self Verification != NOT_YET
+Today
+→ 30-Day Mission
+→ Real Action
+→ Checklist
+→ Evidence
+→ Self Verification
+→ Leader Coach
+→ Operating Artifact
+→ Next Mission
 ```
 
-## People contract
+## People Contract
+People의 질문은 “이 사람은 어떤 사람인가?”가 아니라 다음이다.
 
-People is Collaboration Intelligence.
+> 이 사람과 어떻게 일해야 업무가 더 명확하고 효과적으로 움직이는가?
 
-The system answers:
-
-> How should I work with this person so the work becomes clearer and more effective?
-
-It must not answer:
-
-> What kind of person is this employee?
-
-Automatic instruction adaptation priority:
-
+Canonical loop:
 ```text
-current task requirements
-→ verified self-reported preference
-→ current non-conflicted Confirmed Pattern
-→ default Leader OS model
+Observe / Source
+→ Candidate
+→ Human Confirm
+→ Confirmed Pattern
+→ Revalidate
+→ Apply
+→ Outcome
+→ Learn
 ```
 
-## Public confirmation contract
+Self-reported loop:
+```text
+Leader draft
+→ limited confirmation link
+→ team member confirm/correct
+→ SUBMITTED
+→ leader review
+→ Apply / Reject
+→ verified preference
+```
 
-Public team-member confirmation may expose only explicit working-preference fields and an optional comment.
+## HR Boundary
+HR/Admin may see:
+- mission completion
+- quest progress
+- evidence-day count
+- organizational artifact status
 
-It must never expose:
-
-- private leader notes
-- Pattern reasoning
-- Source content/sourceRefs
-- 1:1 records
-- audio/transcript
-- instruction history
-- outcome history
-- private onboarding Context
-- HR data
+HR/Admin may not see:
+- private self reflection
+- private 1:1 body
+- private People reasoning
+- private Working Persona details
+- private audio/transcript
