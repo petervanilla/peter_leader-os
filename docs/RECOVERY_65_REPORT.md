@@ -35,6 +35,8 @@ Recovery 65 added and applied an idempotent migration:
 
 The migration records the table, indexes, RLS state, direct privilege revocation, bucket configuration, and owner-only Storage policies.
 
+Post-migration verification passed: the migration is present in production history, the request table remains RLS-enabled, the private audio bucket remains non-public with a 25 MB limit and the expected MIME allowlist, and all four owner-only Storage policies are present.
+
 ### 3. Product Constitution added
 
 The non-regression product rules are now explicit in `docs/PRODUCT_CONSTITUTION.md`.
@@ -55,15 +57,24 @@ Recovery 65 therefore stores the canonical artifact as numbered text parts plus 
 
 The root `index.html` remains a browser-ready preview, not the canonical runtime.
 
+### Canonical source verification
+
+The 5,196,227-byte Recovery 64 source was reconstructed from the conversation artifact, split into 8 repository parts, fetched back from GitHub, concatenated in order, and compared against the source string. The comparison passed exactly.
+
+Expected canonical SHA-256:
+
+`8e16f50fdf1eebb31a35addd4b588a9421400d9d3712b83dfcb32bdeed690b9c`
+
+`scripts/assemble-r64.mjs` verifies both byte length and SHA-256 before writing the assembled file to `dist/`.
+
 ## Still open after Recovery 65
 
 P0 release work remains:
 
 1. authenticated Login / Workspace E2E
 2. People confirmation full E2E
-3. assembled canonical artifact hash verification
-4. deployment of the canonical app/runtime, not only the lightweight preview
-5. reload/persistence checks
-6. error/loading/empty-state QA
+3. deployment of the canonical app/runtime, not only the lightweight preview
+4. reload/persistence checks
+5. error/loading/empty-state QA
 
 Next milestone: Recovery 66 — Auth + People Full E2E.
