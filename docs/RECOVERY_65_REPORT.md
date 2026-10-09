@@ -67,13 +67,25 @@ Expected canonical SHA-256:
 
 `scripts/assemble-r64.mjs` verifies both byte length and SHA-256 before writing the assembled file to `dist/`.
 
+
+### 6. Embedded modular source extracted
+
+The canonical Recovery 64 HTML already carried its original module source map in `const MODULES`. Recovery 65 now extracts that source map into `src/canonical-r64/` without rewriting it.
+
+- extracted modules: **36 / 36**
+- extraction source: canonical Recovery 64 byte-verified artifact
+- module manifest: `src/canonical-r64/module-manifest.json`
+- parity command: `npm run verify:r64-modules`
+
+This changes the migration problem from “rewrite a 5 MB HTML file” to “activate and modernize the original modular source while preserving canonical behavior.”
+
 ## Still open after Recovery 65
 
 P0 release work remains:
 
 1. authenticated Login / Workspace E2E
 2. People confirmation full E2E
-3. deployment of the canonical app/runtime, not only the lightweight preview
+3. activate the extracted modular frontend as the deployable canonical app/runtime, not only the lightweight preview
 4. reload/persistence checks
 5. error/loading/empty-state QA
 

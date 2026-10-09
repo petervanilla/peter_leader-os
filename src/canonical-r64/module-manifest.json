@@ -1,0 +1,152 @@
+{
+  "recovery": 64,
+  "source_canonical_sha256": "8e16f50fdf1eebb31a35addd4b588a9421400d9d3712b83dfcb32bdeed690b9c",
+  "module_count": 36,
+  "extracted_from": "const MODULES embedded in canonical Recovery 64",
+  "modules": [
+    {
+      "path": "addon-runtime.js",
+      "characters": 1771
+    },
+    {
+      "path": "addons.js",
+      "characters": 2550
+    },
+    {
+      "path": "app-session.js",
+      "characters": 11928
+    },
+    {
+      "path": "app.js",
+      "characters": 237447
+    },
+    {
+      "path": "billing.js",
+      "characters": 5440
+    },
+    {
+      "path": "browser-runtime.js",
+      "characters": 401
+    },
+    {
+      "path": "controllers/application-controllers.js",
+      "characters": 2023
+    },
+    {
+      "path": "decisions.js",
+      "characters": 2818
+    },
+    {
+      "path": "gateway.js",
+      "characters": 5427
+    },
+    {
+      "path": "learning.js",
+      "characters": 1761
+    },
+    {
+      "path": "live-today.js",
+      "characters": 4836
+    },
+    {
+      "path": "meetings.js",
+      "characters": 1619
+    },
+    {
+      "path": "navigation.js",
+      "characters": 3310
+    },
+    {
+      "path": "object-detail.js",
+      "characters": 4593
+    },
+    {
+      "path": "onboarding.js",
+      "characters": 50934
+    },
+    {
+      "path": "one-on-one.js",
+      "characters": 2818
+    },
+    {
+      "path": "personalization.js",
+      "characters": 2137
+    },
+    {
+      "path": "reports.js",
+      "characters": 1459
+    },
+    {
+      "path": "review.js",
+      "characters": 2966
+    },
+    {
+      "path": "runtime-integration.js",
+      "characters": 501
+    },
+    {
+      "path": "runtime-repositories.js",
+      "characters": 5719
+    },
+    {
+      "path": "runtime.js",
+      "characters": 18767
+    },
+    {
+      "path": "skills.js",
+      "characters": 1371
+    },
+    {
+      "path": "supabase-auth.js",
+      "characters": 7835
+    },
+    {
+      "path": "team.js",
+      "characters": 3102
+    },
+    {
+      "path": "today.js",
+      "characters": 3102
+    },
+    {
+      "path": "ui/billing-ui.js",
+      "characters": 6564
+    },
+    {
+      "path": "ui/first-use-ui.js",
+      "characters": 5685
+    },
+    {
+      "path": "ui/helpers.js",
+      "characters": 811
+    },
+    {
+      "path": "ui/live-session-ui.js",
+      "characters": 28070
+    },
+    {
+      "path": "ui/navigation-ui.js",
+      "characters": 4568
+    },
+    {
+      "path": "ui/object-detail-ui.js",
+      "characters": 13444
+    },
+    {
+      "path": "ui/today-ui.js",
+      "characters": 4048
+    },
+    {
+      "path": "user-preferences.js",
+      "characters": 5487
+    },
+    {
+      "path": "work.js",
+      "characters": 1426
+    },
+    {
+      "path": "workspace-directory.js",
+      "characters": 4100
+    }
+  ]
+}
