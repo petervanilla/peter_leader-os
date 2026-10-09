@@ -5,7 +5,9 @@
   "scripts": {
     "assemble:r64": "node scripts/assemble-r64.mjs",
     "verify:r64": "node scripts/assemble-r64.mjs",
-    "verify:r64-modules": "node scripts/verify-r64-modules.mjs"
+    "verify:r64-modules": "node scripts/verify-r64-modules.mjs",
+    "build": "node scripts/build-r65-modular.mjs",
+    "verify:r65": "npm run verify:r64 && npm run verify:r64-modules && npm run build"
   },
   "engines": {
     "node": ">=20"

@@ -79,6 +79,21 @@ The canonical Recovery 64 HTML already carried its original module source map in
 
 This changes the migration problem from “rewrite a 5 MB HTML file” to “activate and modernize the original modular source while preserving canonical behavior.”
 
+
+### 7. Modular production build path added
+
+The repository now has a production build path that does not execute the embedded `const MODULES` blob-loader.
+
+`npm run build`:
+1. reconstructs and SHA-verifies canonical Recovery 64,
+2. removes the inline module-map loader,
+3. points the canonical shell at `/src/canonical-r64/app.js`,
+4. validates every relative module import target,
+5. copies the exact 36 extracted modules into `dist/src/canonical-r64/`,
+6. writes the deployable canonical shell as `dist/index.html`.
+
+`vercel.json` now uses this build and serves `dist/`. The repository root `index.html` remains a lightweight preview only; production Preview should use the build output.
+
 ## Still open after Recovery 65
 
 P0 release work remains:

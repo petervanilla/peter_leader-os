@@ -19,12 +19,12 @@ GitHub를 Leader OS의 재현 가능한 Source of Truth로 만들고, 실제 Sup
 - [x] Claude handoff guardrails added
 
 ## Not completed yet
-- [x] embedded Recovery 64 source map extracted byte-for-byte into 36 canonical modules\n- [ ] activate extracted modules as the production frontend build instead of the monolith
-- [ ] actual frontend Runtime wired from repo build instead of preview-only `index.html`
+- [x] embedded Recovery 64 source map extracted byte-for-byte into 36 canonical modules\n- [x] activate extracted modules through the R65 modular production build pipeline
+- [x] actual canonical frontend Runtime wired to `dist/index.html` from repository modules
 - [ ] authenticated Login → Workspace → Reload E2E
 - [ ] full People confirmation owner E2E
 - [ ] all historical production DDL reconstructed as ordered migrations
-- [ ] Vercel production preview linked to this repository
+- [ ] Vercel production preview deployment linked to this repository (build config ready)
 - [ ] Today / Mission / Artifact full persistence regression
 - [ ] error / loading / empty / mobile / theme regression pass
 
