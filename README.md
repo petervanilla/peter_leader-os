@@ -83,9 +83,13 @@ Collaboration Memory
 
 ## Current Recovery
 
-Current canonical product state:
+Current canonical product behavior:
 
 **Recovery 64 — Collaborative Working Persona**
+
+Current repository/runtime consolidation milestone:
+
+**Recovery 65 — Repository & Runtime Consolidation**
 
 핵심 추가 사항:
 
@@ -135,7 +139,27 @@ Never:
 
 - [Work Specification](docs/WORK_SPEC.md)
 - [Implementation Guide](docs/IMPLEMENTATION_GUIDE.md)
+- [Product Constitution](docs/PRODUCT_CONSTITUTION.md)
+- [Claude Handoff Boundary](docs/CLAUDE_HANDOFF.md)
 - [Recovery 64 Report](docs/RECOVERY_64_REPORT.md)
+- [Recovery 65 Report](docs/RECOVERY_65_REPORT.md)
+- [Supabase Runtime Snapshot](supabase/README.md)
+
+## Canonical source
+
+The full Recovery 64 canonical HTML is stored as 8 ordered source parts under `legacy/canonical/r64/parts/` because the connector's normal GitHub Contents path is not suitable for the ~5 MB single file.
+
+Rebuild and verify it with:
+
+```bash
+npm run assemble:r64
+```
+
+Expected canonical SHA-256:
+
+`8e16f50fdf1eebb31a35addd4b588a9421400d9d3712b83dfcb32bdeed690b9c`
+
+The root `index.html` is a lightweight browser preview and is not the canonical runtime.
 
 ## Current Release Gate
 
