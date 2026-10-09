@@ -1,0 +1,12 @@
+{
+  "name": "peter-leader-os",
+  "private": true,
+  "version": "0.65.0",
+  "scripts": {
+    "assemble:r64": "node scripts/assemble-r64.mjs",
+    "verify:r64": "node scripts/assemble-r64.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
