@@ -230,3 +230,20 @@ Prefer:
 4. outcome analysis by task class, not across people
 5. revalidation reminders without exposing private content to HR
 6. real transcription provider only when credentials/provider are intentionally selected
+
+
+## Recovery 65 Repository Rule
+
+From Recovery 65 onward, `petervanilla/peter_leader-os` is the repository handoff Source of Truth for:
+
+- runtime source snapshots
+- migration changes
+- Product Constitution
+- Claude handoff constraints
+- canonical Recovery source preservation
+
+Before changing Supabase Edge Functions, fetch the current deployed source and compare it with the repository snapshot.
+
+Before changing database schema, create/apply a tracked migration and update the migration inventory.
+
+The root `index.html` is a lightweight preview only. Do not treat it as equivalent to the assembled canonical Recovery 64 runtime.
