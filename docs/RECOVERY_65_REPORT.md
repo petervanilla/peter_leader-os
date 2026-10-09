@@ -94,6 +94,22 @@ The repository now has a production build path that does not execute the embedde
 
 `vercel.json` now uses this build and serves `dist/`. The repository root `index.html` remains a lightweight preview only; production Preview should use the build output.
 
+
+## Recovery 65 modular-build validation
+
+The modular build path was reproduced against the original canonical artifact and passed:
+
+- canonical SHA-256: `8e16f50fdf1eebb31a35addd4b588a9421400d9d3712b83dfcb32bdeed690b9c`
+- extracted canonical modules: **36**
+- direct module entry: `/src/canonical-r64/app.js`
+- inline `const MODULES` loader removed from build output
+- relative import graph: PASS
+- `app.js` JavaScript syntax check: PASS
+- generated modular shell size: 4,674,598 bytes
+- generated module files: 36
+
+This validation did not require changing the production Supabase runtime.
+
 ## Still open after Recovery 65
 
 P0 release work remains:
