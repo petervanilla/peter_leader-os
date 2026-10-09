@@ -1,42 +1,45 @@
-# Supabase Runtime Snapshot
+# Supabase Runtime Inventory
 
 Project: `leader-os-runtime`  
 Project ref: `lclibscjesyvsnxvdhoy`  
 Region: `ap-northeast-2`
 
-## Canonical Edge Functions
+## Canonical functions snapshot
+- `leader-os-runtime` — v27 — verify_jwt=true
+- `leader-os-people-confirm` — v2 — verify_jwt=false intentionally; custom expiring-token auth
 
-### leader-os-runtime
-- current production version: v27
-- JWT verification: ON
-- repository snapshot path: `supabase/functions/leader-os-runtime/`
+The repository copies under `supabase/functions/` are current production snapshots captured during Recovery 65. Before any future server modification, fetch deployed source again and compare first.
 
-### leader-os-people-confirm
-- current production version: v2
-- JWT verification: OFF intentionally
-- authentication: expiring capability token
-- JSON API only
-- repository snapshot path: `supabase/functions/leader-os-people-confirm/`
+## Current leader_os base tables
+- addon_runtime_binding_events
+- addon_runtime_bindings
+- core_records
+- domain_events
+- people_preference_confirmation_requests
+- record_access_grants
+- user_preferences
+- work_report_delivery_queue
+- work_report_events
+- work_report_schedules
+- work_reports
+- workspace_members
+- workspaces
 
-## People confirmation storage
-
-Table:
-
+## People confirmation table
 `leader_os.people_preference_confirmation_requests`
 
-Private audio bucket:
+Key properties:
+- RLS enabled
+- no direct anon/authenticated table policy
+- direct application access goes through controlled server functions / Edge API
+- token hash is UNIQUE
+- status check: ACTIVE / SUBMITTED / APPLIED / REJECTED / REVOKED / EXPIRED
+- owner index: workspace_id, owner_user_id, person_id, created_at desc
+- status index: status, expires_at
 
+## Private audio bucket
 `leader-os-people-audio`
-
-- public: false
-- max file size: 25 MB
+- public=false
+- max file size: 25 MiB
 - allowed MIME: audio/mpeg, audio/mp4, audio/x-m4a, audio/wav, audio/webm, audio/ogg
-- first path segment must match authenticated user id
-
-## Migration discipline
-
-Existing production migrations predate this repository snapshot. The tracked migration inventory must be treated as historical database state.
-
-Recovery 65 adds an idempotent baseline migration for the People confirmation request table and private audio bucket/policies so this previously untracked Recovery 64 database change is now represented in migration history.
-
-Do not make future production DDL changes outside a migration.
+- authenticated own-folder policies exist for SELECT / INSERT / UPDATE / DELETE
