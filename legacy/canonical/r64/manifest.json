@@ -1,0 +1,19 @@
+{
+  "recovery": 64,
+  "canonical_file": "Leader_OS_Canonical_Workspace_Recovery_64_Collaborative_Working_Persona.html",
+  "source_lines": 8638,
+  "source_bytes": 5196227,
+  "source_sha256": "8e16f50fdf1eebb31a35addd4b588a9421400d9d3712b83dfcb32bdeed690b9c",
+  "part_count": 8,
+  "part_order": [
+    "legacy/canonical/r64/parts/part-01.htmlfrag",
+    "legacy/canonical/r64/parts/part-02.htmlfrag",
+    "legacy/canonical/r64/parts/part-03.htmlfrag",
+    "legacy/canonical/r64/parts/part-04.htmlfrag",
+    "legacy/canonical/r64/parts/part-05.htmlfrag",
+    "legacy/canonical/r64/parts/part-06.htmlfrag",
+    "legacy/canonical/r64/parts/part-07.htmlfrag",
+    "legacy/canonical/r64/parts/part-08.htmlfrag"
+  ],
+  "note": "Concatenate part files in order with no separator. Expected SHA-256 is source_sha256."
+}
