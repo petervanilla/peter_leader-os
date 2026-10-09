@@ -293,3 +293,30 @@ Audio:
 - no guest state silently uploaded to authenticated Workspace
 - optimistic versioning stays required
 - AI recommends; human decides
+
+
+## 12. Recovery 65 Repository Consolidation Status
+
+Completed:
+
+- GitHub repository established as durable handoff source
+- production `leader-os-runtime` v27 source mirrored
+- production `leader-os-people-confirm` v2 source mirrored
+- Recovery 64 People confirmation/audio database drift captured in migration history
+- Product Constitution added
+- Claude handoff boundary added
+- canonical Recovery 64 source preserved as 8 verified ordered parts
+- assembly/hash verification script added
+- environment contract added
+
+Still P0:
+
+- authenticated Login / Workspace E2E
+- People confirmation full E2E
+- canonical runtime deployment
+- reload/persistence verification
+- error/loading/empty-state QA
+
+Next milestone:
+
+**Recovery 66 — Auth + People Full E2E**
